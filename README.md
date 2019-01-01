@@ -1,5 +1,8 @@
 # Objective 
-Getting intuition about the decision boundary in Neural Network (Keras Based).
+Getting intuition about how decision boundary changes while training a Neural Network (Keras Based).
+
+# Result
+- ![decision-boundary](https://github.com/Sayantanmukherjee6/Neural-Network-Decision-Boundary-Using-Keras/blob/master/decision_boundary.gif)
 
 # Required Python Files
 - decision_boundary.py  = Generates decision boundary image in a folder **(images_new)** for every single epoch.
@@ -17,10 +20,3 @@ Getting intuition about the decision boundary in Neural Network (Keras Based).
 
 # Neural Network and Visualization Code Source 
 - https://jonchar.net/notebooks/Artificial-Neural-Network-with-Keras/
-
-
-	
-
-
-
-
