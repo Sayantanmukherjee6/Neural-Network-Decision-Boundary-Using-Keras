@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-#https://jonchar.net/notebooks/Artificial-Neural-Network-with-Keras/
+# https://jonchar.net/notebooks/Artificial-Neural-Network-with-Keras/
 
 import os
 import numpy as np
@@ -14,7 +14,6 @@ from keras.callbacks import Callback
 
 epoch_count=0
 count=0
-
 
 def plot_decision_boundary(X, y, model,epoch_count,count,steps=1000, cmap='Paired'):
     """
@@ -46,7 +45,7 @@ def plot_decision_boundary(X, y, model,epoch_count,count,steps=1000, cmap='Paire
     fig.savefig("images_new/"+str(count)+"_nn.png")
     return epoch_count
 
-#Keras callback to save decision boundary after each epoch
+# Keras callback to save decision boundary after each epoch
 class prediction_history(Callback):
     def __init__(self):
         self.epoch_count=epoch_count
@@ -61,31 +60,21 @@ class prediction_history(Callback):
 
 
 if __name__ == "__main__":
-
     X, y = datasets.make_moons(n_samples=1000, noise=0.1, random_state=0)
 
     # Create a directory where image will be saved
     os.makedirs("images_new", exist_ok=True)
+    
     # Define our model object
     model = Sequential()
-
     # kwarg dict for convenience
     layer_kw = dict(activation='sigmoid', init='glorot_uniform')
-
     # Add layers to our model
     model.add(Dense(output_dim=5, input_shape=(2, ), **layer_kw))
     model.add(Dense(output_dim=5, **layer_kw))
     model.add(Dense(output_dim=1, **layer_kw))
-
     sgd = SGD(lr=0.1)
     # Compile model
     model.compile(optimizer=sgd, loss='binary_crossentropy')
-
-
     predictions=prediction_history()
     model.fit(X[:500], y[:500],verbose=0,epochs=4000, shuffle=True,callbacks=[predictions])
-
-
-
-
-
